@@ -9,10 +9,22 @@
     <title>AJAX</title>
   </head>
   <body>
-    <main class="container">
-      <div class="countries"></div>
-      <button class="btn-country">جستجوی کشور</button>
-      <div class="images"></div>
+    <main class="main-container">
+      <div class="countries-container"></div>
+      <div class="form-container">
+        <div class="form">
+          <label for="country" class="form-label">نام کشور (انگلیسی)</label>
+          <input
+            class="form-input"
+            type="text"
+            name="country-input"
+            id="country"
+            dir="ltr"
+            required
+          />
+        </div>
+        <button class="form-btn">جستجو</button>
+      </div>
     </main>
   </body>
 </html>

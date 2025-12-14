@@ -1,31 +1,34 @@
-const countryBtn = document.querySelector(".btn-country");
-const countriesContainer = document.querySelector(".countries");
+const formContainer = document.querySelector('.form-container');
+const formInput = document.querySelector('.form-input');
+const formBtn = document.querySelector('.form-btn');
+const countriesContainer = document.querySelector('.countries-container');
 const countries = [];
 
 const request = new XMLHttpRequest();
-request.open("GET", "https://restcountries.com/v3.1/all?fields=name");
+request.open('GET', 'https://restcountries.com/v3.1/all?fields=name');
 request.send();
-request.addEventListener("load", function () {
+request.addEventListener('load', function () {
   const allCountries = JSON.parse(this.responseText);
 
-  allCountries.forEach((conutry) => {
+  allCountries.forEach(conutry => {
     const countryName = conutry.name.common;
     countries.push(countryName.toLowerCase());
   });
 
-  countryBtn.addEventListener("click", function () {
-    const userCountry = prompt("نام کشور را به انگلیسی وارد کنید:");
-    if (userCountry === null) return;
-    if (countries.includes(userCountry.toLowerCase())) {
+  formBtn.addEventListener('click', function () {
+    const country = formInput.value;
+    if (!country.trim()) return;
+    if (!countries.includes(country.toLowerCase())) {
+      alert('کشوری با این نام یافت نشد!');
+    }
+    if (countries.includes(country.toLowerCase())) {
       request.open(
-        "GET",
-        `https://restcountries.com/v3.1/name/${userCountry}?fullText=true`
+        'GET',
+        `https://restcountries.com/v3.1/name/${country}?fullText=true`
       );
       request.send();
-      countriesContainer.style.opacity = 1;
-      countryBtn.style.display = "none";
 
-      request.addEventListener("load", function () {
+      request.addEventListener('load', function () {
         const [data] = JSON.parse(this.responseText);
         console.log(data);
         const html = ` <article class="country">
@@ -47,10 +50,11 @@ request.addEventListener("load", function () {
               </div>
             </article>`;
 
-        countriesContainer.insertAdjacentHTML("afterbegin", html);
+        countriesContainer.insertAdjacentHTML('afterbegin', html);
+
+        formContainer.style.display = 'none';
+        countriesContainer.style.opacity = 1;
       });
-    } else {
-      alert("کشوری با این نام یافت نشد!");
     }
   });
 });
