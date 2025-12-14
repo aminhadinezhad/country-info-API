@@ -18,10 +18,7 @@ body {
   justify-content: center;
 }
 
-button,
-input,
-textarea,
-select {
+button {
   font-family: inherit;
 }
 
@@ -41,8 +38,7 @@ select {
   box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
   font-size: 1.8rem;
   width: 30rem;
-  border-radius: 0.7rem;
-  margin: 0 3rem;
+  border-radius: 0.5rem;
 }
 
 .neighbour::before {
@@ -137,7 +133,7 @@ select {
   border: none;
   font-size: 1.6rem;
   padding: 0.4rem 1.2rem;
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   color: white;
   background-color: #ff4500;
   cursor: pointer;

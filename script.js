@@ -16,7 +16,7 @@ request.addEventListener('load', function () {
   });
 
   formBtn.addEventListener('click', function () {
-    const country = formInput.value;
+    const country = formInput.value.trim();
     if (!country.trim()) return;
     if (!countries.includes(country.toLowerCase())) {
       alert('کشوری با این نام یافت نشد!');
