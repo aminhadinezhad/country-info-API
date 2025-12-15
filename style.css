@@ -23,12 +23,12 @@ button {
 }
 
 .main-container {
-  padding-top: 4rem;
   display: flex;
   justify-content: center;
 }
 
 .countries-container {
+  padding-top: 4rem;
   opacity: 0;
   transition: opacity 1s;
 }
