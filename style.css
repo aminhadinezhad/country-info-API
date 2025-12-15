@@ -42,7 +42,7 @@ button {
 }
 
 .neighbour::before {
-  content: 'Neighbour country';
+  content: 'کشور همسایه';
   width: 100%;
   position: absolute;
   top: -4rem;
